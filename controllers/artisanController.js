@@ -1,13 +1,17 @@
-const { Artisan, Specialite } = require("../models");
+const { Artisan, Specialite, Categorie } = require("../models");
 
 exports.getAllArtisans = async (req, res) => {
   try {
     const artisans = await Artisan.findAll({
         include: {
-    model: Specialite,
-    as: "specialite"
-  }
-});
+          model: Specialite,
+          as: "specialite",
+        include: {
+          model: Categorie,
+          as: "categorie"
+        }
+      }
+    });
 
     res.json(artisans);
   } catch (error) {
