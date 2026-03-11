@@ -1,14 +1,12 @@
-const { Categorie, Specialite } = require("../models");
+const { Categorie, Specialite, Artisan } = require("../models");
 
-exports.getCategoriesWithSpecialites = async (req, res) => {
+exports.getAllCategories = async (req, res) => {
   try {
     const categories = await Categorie.findAll({
-      include: [
-        {
-          model: Specialite,
-          as: "specialites"
-        }
-      ]
+      include: {
+        model: Specialite,
+        as: "specialites"
+      }
     });
 
     res.json(categories);
@@ -17,20 +15,20 @@ exports.getCategoriesWithSpecialites = async (req, res) => {
   }
 };
 
-exports.getCategories = async (req, res) => {
-  try {
-    const categories = await Categorie.findAll();
-    res.json(categories);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
 exports.getCategorieById = async (req, res) => {
   try {
-    const Categorie = await Categorie.findByPk(req.params.id);
+    const categorie = await Categorie.findByPk(req.params.id, {
+      include: {
+        model: Specialite,
+        as: "specialites",
+        include: {
+          model: Artisan,
+          as: "artisans"
+        }
+      }
+    });
 
-    res.json(Categorie);
+    res.json(categorie);
   } catch (error) {
     res.status(500).json(error);
   }

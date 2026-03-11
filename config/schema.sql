@@ -1,29 +1,41 @@
--- ===================== Création de la base =====================
+-- =========================
+-- Reset de la base
+-- =========================
 
-CREATE DATABASE IF NOT EXISTS trouve_ton_artisan;
-
+DROP DATABASE IF EXISTS trouve_ton_artisan;
+CREATE DATABASE trouve_ton_artisan;
 USE trouve_ton_artisan;
 
 
--- ===================== Table categories =====================
+-- =========================
+-- Table categories
+-- =========================
 
 CREATE TABLE categorie (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL
+    nom VARCHAR(50) NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 
--- ===================== Table specialites =====================
+-- =========================
+-- Table specialites
+-- =========================
 
 CREATE TABLE specialite (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
     categorie_id INT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (categorie_id) REFERENCES categorie(id)
 );
 
 
--- ===================== Table artisans =====================
+-- =========================
+-- Table artisans
+-- =========================
 
 CREATE TABLE artisan (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,14 +43,19 @@ CREATE TABLE artisan (
     note FLOAT,
     ville VARCHAR(100),
     description TEXT,
+    email VARCHAR(100),
     site_web VARCHAR(255),
-    image VARCHAR(255),
+    top BOOLEAN DEFAULT FALSE,
     specialite_id INT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (specialite_id) REFERENCES specialite(id)
 );
 
 
--- ===================== Table messages (contact) =====================
+-- =========================
+-- Table messages (contact)
+-- =========================
 
 CREATE TABLE message (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,5 +65,7 @@ CREATE TABLE message (
     message TEXT,
     date DATETIME,
     artisan_id INT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (artisan_id) REFERENCES artisan(id)
 );

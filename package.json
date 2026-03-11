@@ -14,7 +14,15 @@
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "mysql2": "^3.19.0",
-    "sequelize": "^6.37.7"
-  }
+    "mysql2": "^3.19.1",
+    "sequelize": "^6.37.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lydie-pixel/Trouve_ton_artisan.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lydie-pixel/Trouve_ton_artisan/issues"
+  },
+  "homepage": "https://github.com/Lydie-pixel/Trouve_ton_artisan#readme"
 }
