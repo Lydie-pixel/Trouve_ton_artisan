@@ -10,4 +10,8 @@ const sequelize = new Sequelize(
   }
 );
 
+sequelize.authenticate()
+  .then(() => console.log("BDD connectée"))
+  .catch(err => console.error("Erreur connexion BDD :", err));
+
 module.exports = sequelize;
