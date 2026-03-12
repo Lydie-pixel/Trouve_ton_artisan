@@ -30,6 +30,9 @@ const Artisan = sequelize.define("Artisan", {
   top: {
     type: DataTypes.BOOLEAN,
   }
+
+}, {
+  tableName: "artisan"
 });
 
 module.exports = Artisan;

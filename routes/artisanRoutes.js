@@ -4,5 +4,6 @@ const artisanController = require("../controllers/artisanController");
 
 router.get("/", artisanController.getAllArtisans);
 router.get("/:id", artisanController.getArtisanById);
+router.get("/search", artisanController.searchArtisans);
 
 module.exports = router;
