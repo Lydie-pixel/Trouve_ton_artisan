@@ -29,7 +29,9 @@ const Message = sequelize.define("Message", {
 
   artisan_id: {
     type: DataTypes.INTEGER,
-  },
+  }
+}, {
+  tableName: "message"
 });
 
 module.exports = Message;
