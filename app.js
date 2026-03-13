@@ -5,7 +5,9 @@ const artisanRoutes = require("./routes/artisanRoutes");
 const categorieRoutes = require("./routes/categorieRoutes");
 const specialiteRoutes = require("./routes/specialiteRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/artisans", artisanRoutes);
