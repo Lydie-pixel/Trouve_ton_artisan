@@ -11,7 +11,49 @@
     </head>
     <body>
         <div id="header"></div>
-        <main>
+
+        <main class="container mt-5">
+
+            <!--Fiche contacte-->
+            <div class="card shadow p-4">
+
+                <div class="row">
+
+                    <div class="col-md-4 text-center">
+
+                        <img id="artisan-photo"
+                            src="/artisan-front/asset/img/favicon.png"
+                            class="img-fluid rounded mb-3"
+                        >
+
+                    </div>
+
+                    <div class="col-md-8">
+                        <i class="bi bi-star-fill"><p id="artisan-note"></p></i>
+
+                        <h2 id="artisan-nom"></h2>
+
+                        <span id="artisan-specialite"
+                        class="badge bg-primary mb-2"></span>
+
+                        <p class="text-muted">
+                        Ville : <span id="artisan-ville"></span>
+                        </p>
+
+                        <p id="artisan-description"></p>
+
+                        <a id="artisan-site"
+                        class="btn btn-outline-primary d-none"
+                        target="_blank"></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--Formulaire-->
 
             <form form id="contactForm">
                
@@ -19,7 +61,7 @@
                 <input id="nom" type="text" class="form-control" required>
 
                 <label for="objet" class="form-label">Objet</label>
-                <input id="nom" type="text" class="form-control" required>
+                <input id="objet" type="text" class="form-control" required>
 
                 <div class="mb-3">
                 <label for="mail" class="form-label">Email</label>
@@ -32,9 +74,11 @@
             </form>
 
         </main>
+
         <div id="footer"></div>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/artisan-front/asset/js/components.js"></script>
-        <script src="/artisan-front/asset/js/artisanDetail.js"></script>
+        <script src="/artisan-front/asset/js/artisan.js"></script>
     </body>
 </html>

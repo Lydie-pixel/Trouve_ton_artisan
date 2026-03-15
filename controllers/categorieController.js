@@ -1,5 +1,6 @@
 const { Categorie, Specialite, Artisan } = require("../models");
 
+// Affiche toutes les catégories
 exports.getAllCategories = async (req, res) => {
   try {
     const categories = await Categorie.findAll({
@@ -15,6 +16,7 @@ exports.getAllCategories = async (req, res) => {
   }
 };
 
+// Trouve une catégorie via son ID
 exports.getCategorieById = async (req, res) => {
   try {
     const categorie = await Categorie.findByPk(req.params.id, {

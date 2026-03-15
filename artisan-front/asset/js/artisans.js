@@ -1,6 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const categorieId = params.get("categorie");
 
+
+//Crée une cartes pour chaques artisans
 function createArtisanCard(artisan) {
 
     const card = document.createElement("div");
@@ -24,7 +26,7 @@ function createArtisanCard(artisan) {
 
             <br><br>
 
-            <a class="btn btn-primary" href="artisanDetail.html?id=${artisan.id}">
+            <a class="btn btn-primary" href="artisan.html?id=${artisan.id}">
                 Voir sa fiche
             </a>
 
@@ -38,10 +40,13 @@ function createArtisanCard(artisan) {
 
 console.log("artisans.js chargé");
 
+
+
+//Compléte les cartes avec les infos des artisans
 let url = "http://localhost:3000/api/artisans";
 
 if (categorieId) {
-    url = `http://localhost:3000/api/categorie/${categorieId}`;
+    url = `http://localhost:3000/api/artisans/categorie/${categorieId}`;
 }
 
 fetch(url)
@@ -53,29 +58,4 @@ fetch(url)
     data.forEach(artisan => {
         container.appendChild(createArtisanCard(artisan));
     });
-
-});
-
-fetch("http://localhost:3000/api/artisans/mois")
-.then(res => res.json())
-.then(data => {
-
-    const container = document.getElementById("top-artisans");
-
-    data.forEach(artisan => {
-        container.appendChild(createArtisanCard(artisan));
-    });
-
-});
-
-fetch(`http://localhost:3000/api/artisans/categorie/${id}`)
-.then(res => res.json())
-.then(data => {
-
-    const container = document.getElementById("categorie");
-
-    data.forEach(artisan => {
-        container.appendChild(createArtisanCard(artisan));
-    });
-
 });
