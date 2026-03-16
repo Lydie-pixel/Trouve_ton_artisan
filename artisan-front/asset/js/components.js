@@ -6,6 +6,14 @@ fetch("/artisan-front/components/Header.html")
     if(header) header.innerHTML = data;
 });
 
+// Affiche le hero
+fetch("/artisan-front/components/Hero.html")
+.then(res => res.text())
+.then(data => {
+    const hero = document.getElementById("hero");
+    if(hero) hero.innerHTML = data;
+});
+
 // Affiche le footer
 fetch("/artisan-front/components/Footer.html")
 .then(res => res.text())
@@ -35,5 +43,19 @@ fetch("http://localhost:3000/api/categories")
         menu.appendChild(li);
 
     });
+
+});
+
+// Recherche des artisans 
+const searchForm = document.querySelector("form");
+
+searchForm.addEventListener("submit", (e) => {
+
+  e.preventDefault();
+
+  const search = document.getElementById("searchInput").value;
+
+  window.location.href =
+  `artisan.html?ville=${search}`;
 
 });

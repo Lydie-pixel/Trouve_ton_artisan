@@ -4,6 +4,7 @@ const artisanController = require("../controllers/artisanController");
 
 router.get("/", artisanController.getAllArtisans);
 router.get("/search", artisanController.searchArtisans);
+router.get("/top", artisanController.getTopArtisans);
 router.get("/categorie/:id", artisanController.getArtisansByCategorie);
 router.get("/specialite/:id", artisanController.getArtisansBySpecialite);
 router.get("/:id", artisanController.getArtisanById);

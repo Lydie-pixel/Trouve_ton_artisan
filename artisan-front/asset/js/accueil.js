@@ -1,21 +1,3 @@
-console.log("artisans.js chargé");
-
-const params = new URLSearchParams(window.location.search);
-
-const categorieId = params.get("categorie");
-const ville = params.get("ville");
-
-let url = "http://localhost:3000/api/artisans";
-
-if (categorieId) {
-  url = `http://localhost:3000/api/artisans/categorie/${categorieId}`;
-}
-
-if (ville) {
-  url = `http://localhost:3000/api/artisans/search?ville=${ville}`;
-}
-
-
 //Crée une cartes pour chaques artisans
 function createArtisanCard(artisan) {
 
@@ -25,12 +7,6 @@ function createArtisanCard(artisan) {
     card.innerHTML = `
     <div class="card h-100 shadow">
         <div class="card-body">
-
-        ${artisan.top ? `
-        <span class="badge bg-warning text-dark mb-2">
-        Top Artisan
-        </span>
-        ` : ""}
 
             <div class="mb-2 text-warning">
                 ⭐ ${artisan.note}
@@ -57,16 +33,14 @@ function createArtisanCard(artisan) {
     return card;
 }
 
-
-//Compléte les cartes avec les infos des artisans
-
-fetch(url)
+fetch("http://localhost:3000/api/artisans/top")
 .then(res => res.json())
 .then(data => {
 
-    const container = document.getElementById("artisans-list");
+  const container = document.getElementById("top-artisans");
 
-    data.forEach(artisan => {
-        container.appendChild(createArtisanCard(artisan));
-    });
+  data.forEach(artisan => {
+    container.appendChild(createArtisanCard(artisan));
+  });
+
 });

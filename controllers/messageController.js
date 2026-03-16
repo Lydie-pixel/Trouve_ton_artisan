@@ -20,3 +20,26 @@ exports.getMessageById = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+// Envoie des messages à l'API
+exports.createMessage = async (req, res) => {
+
+  try {
+
+    const message = await Message.create({
+      nom: req.body.nom,
+      objet: req.body.objet,
+      email: req.body.email,
+      message: req.body.message,
+      artisan_id: req.body.artisan_id
+    });
+
+    res.json(message);
+
+  } catch (error) {
+
+    res.status(500).json(error);
+
+  }
+
+};

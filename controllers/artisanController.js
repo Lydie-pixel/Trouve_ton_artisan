@@ -57,6 +57,8 @@ exports.getArtisanById = async (req, res) => {
   }
 };
 
+
+// Recherche des artisans
 exports.searchArtisans = async (req, res) => {
   try {
 
@@ -141,4 +143,70 @@ exports.getArtisansBySpecialite = async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
+};
+
+// Remonter des 3 artisans du mois
+exports.getTopArtisans = async (req, res) => {
+  try {
+
+    const artisans = await Artisan.findAll({
+      where: { top: true },
+      limit: 3,
+      include: {
+        model: Specialite,
+        as: "specialite",
+        include: {
+          model: Categorie,
+          as: "categorie"
+        }
+      }
+    });
+
+    res.json(artisans);
+
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+
+const { Artisan, Specialite } = require("../models");
+const { Op } = require("sequelize");
+
+exports.searchArtisans = async (req, res) => {
+
+  try {
+
+    const { ville, nom } = req.query;
+
+    const where = {};
+
+    if (ville) {
+      where.ville = {
+        [Op.like]: `%${ville}%`
+      };
+    }
+
+    if (nom) {
+      where.nom = {
+        [Op.like]: `%${nom}%`
+      };
+    }
+
+    const artisans = await Artisan.findAll({
+      where,
+      include: {
+        model: Specialite,
+        as: "specialite"
+      }
+    });
+
+    res.json(artisans);
+
+  } catch (error) {
+
+    res.status(500).json(error);
+
+  }
+
 };
