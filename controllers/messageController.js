@@ -31,11 +31,15 @@ exports.createMessage = async (req, res) => {
       objet: req.body.objet,
       email: req.body.email,
       message: req.body.message,
-      artisan_id: req.body.artisan_id
+      artisan_id: req.body.artisan_id,
+      date: new Date()
     });
 
     res.json(message);
 
+  if (!req.body.email || !req.body.message) {
+    return res.status(400).json({ error: "Champs obligatoires" });
+}
   } catch (error) {
 
     res.status(500).json(error);

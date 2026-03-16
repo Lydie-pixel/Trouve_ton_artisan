@@ -1,4 +1,5 @@
 const { Artisan, Specialite, Categorie } = require("../models");
+const { Op } = require("sequelize");
 
 // Export de tous les artisans
 exports.getAllArtisans = async (req, res) => {
@@ -11,8 +12,6 @@ exports.getAllArtisans = async (req, res) => {
     if (ville) {
       where.ville = ville;
     }
-
-    where.top = true;
 
     const artisans = await Artisan.findAll({
       where,
@@ -51,42 +50,6 @@ exports.getArtisanById = async (req, res) => {
 
     console.log(JSON.stringify(artisan, null, 2));
     res.json(artisan);
-
-  } catch (error) {
-    res.status(500).json(error);
-  }
-};
-
-
-// Recherche des artisans
-exports.searchArtisans = async (req, res) => {
-  try {
-
-    const { ville, specialite } = req.query;
-
-    const where = {};
-
-    if (ville) {
-      where.ville = ville;
-    }
-
-    if (specialite) {
-      where.specialite_id = specialite;
-    }
-
-    const artisans = await Artisan.findAll({
-      where,
-      include: {
-        model: Specialite,
-        as: "specialite",
-        include: {
-          model: Categorie,
-          as: "categorie"
-        }
-      }
-    });
-
-    res.json(artisans);
 
   } catch (error) {
     res.status(500).json(error);
@@ -169,10 +132,7 @@ exports.getTopArtisans = async (req, res) => {
   }
 };
 
-
-const { Artisan, Specialite } = require("../models");
-const { Op } = require("sequelize");
-
+// Recherche des artisans
 exports.searchArtisans = async (req, res) => {
 
   try {

@@ -7,6 +7,10 @@ const specialiteRoutes = require("./routes/specialiteRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
 
+const helmet = require("helmet");
+app.use(helmet());
+
+app.use(express.static("artisan-front"));
 app.use(cors());
 app.use(express.json());
 

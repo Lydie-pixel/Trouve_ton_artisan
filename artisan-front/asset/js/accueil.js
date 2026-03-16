@@ -8,16 +8,16 @@ function createArtisanCard(artisan) {
     <div class="card h-100 shadow">
         <div class="card-body">
 
-            <div class="mb-2 text-warning">
-                ⭐ ${artisan.note}
+            <div class="text-warning">
+                <i class="bi bi-star-fill"></i> ${artisan.note}
             </div>
 
             <h5>${artisan.nom}</h5>
 
             <span>
-                Spécialité : ${artisan.specialite.nom}
+                <i class="bi bi-tools"></i> Spécialité: ${artisan.specialite.nom}
                 <br>
-                Ville : ${artisan.ville}
+                <i class="bi bi-geo-alt"></i> Ville: ${artisan.ville}
             </span>
 
             <br><br>

@@ -1,9 +1,8 @@
-console.log("artisans.js chargé");
-
 const params = new URLSearchParams(window.location.search);
 
 const categorieId = params.get("categorie");
 const ville = params.get("ville");
+const nom = params.get("nom");
 
 let url = "http://localhost:3000/api/artisans";
 
@@ -11,10 +10,9 @@ if (categorieId) {
   url = `http://localhost:3000/api/artisans/categorie/${categorieId}`;
 }
 
-if (ville) {
-  url = `http://localhost:3000/api/artisans/search?ville=${ville}`;
+if (ville || nom) {
+  url = `http://localhost:3000/api/artisans/search?ville=${ville || ""}&nom=${nom || ""}`;
 }
-
 
 //Crée une cartes pour chaques artisans
 function createArtisanCard(artisan) {
@@ -32,16 +30,16 @@ function createArtisanCard(artisan) {
         </span>
         ` : ""}
 
-            <div class="mb-2 text-warning">
-                ⭐ ${artisan.note}
+            <div class="text-warning">
+                <i class="bi bi-star-fill"></i> ${artisan.note}
             </div>
 
             <h5>${artisan.nom}</h5>
 
             <span>
-                Spécialité : ${artisan.specialite.nom}
+                <i class="bi bi-tools"></i> Spécialité: ${artisan.specialite.nom}
                 <br>
-                Ville : ${artisan.ville}
+                <i class="bi bi-geo-alt"></i> Ville: ${artisan.ville}
             </span>
 
             <br><br>
@@ -70,3 +68,29 @@ fetch(url)
         container.appendChild(createArtisanCard(artisan));
     });
 });
+
+// Recherche à écriture
+const input = document.getElementById("searchVille");
+
+
+if (input) {
+  input.addEventListener("input", async () => {
+
+    const ville = input.value;
+
+    const response = await fetch(
+      `http://localhost:3000/api/artisans/search?ville=${ville}`
+    );
+
+    const artisans = await response.json();
+
+    const container = document.getElementById("artisans-list");
+
+    container.innerHTML = "";
+
+    artisans.forEach(artisan => {
+      container.appendChild(createArtisanCard(artisan));
+    });
+
+  });
+}

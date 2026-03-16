@@ -65,6 +65,7 @@ CREATE TABLE message (
     message TEXT,
     date DATETIME,
     artisan_id INT,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (artisan_id) REFERENCES artisan(id)
