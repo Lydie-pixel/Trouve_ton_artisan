@@ -23,3 +23,7 @@ app.get("/", (req, res) => {
 app.get("/artisans", (req, res) => {
   res.send("Liste des artisans");
 });
+
+app.use((req, res) => {
+  res.status(404).sendFile(__dirname + "/public/404.html");
+});

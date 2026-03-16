@@ -5,27 +5,41 @@ function createArtisanCard(artisan) {
     card.classList.add("col-md-4");
 
     card.innerHTML = `
-    <div class="card h-100 shadow">
+    <div class="card h-100 shadow p-3"">
         <div class="card-body">
 
-            <div class="text-warning">
-                <i class="bi bi-star-fill"></i> ${artisan.note}
-            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
 
-            <h5>${artisan.nom}</h5>
+                <div class="text-warning">
+                    <i class="bi bi-star-fill"></i> ${artisan.note}
+                    </div>
 
-            <span>
-                <i class="bi bi-tools"></i> Spécialité: ${artisan.specialite.nom}
-                <br>
-                <i class="bi bi-geo-alt"></i> Ville: ${artisan.ville}
-            </span>
+                    ${artisan.top ? `
+                    <span class="badge bg-warning text-dark">
+                    Top Artisan
+                    </span>
+                    ` : ""}
+                </div>
 
-            <br><br>
+                <h5 class="text-center mb-3">${artisan.nom}</h5>
 
-            <a class="btn btn-primary" href="artisan.html?id=${artisan.id}">
-                Voir sa fiche
-            </a>
+                <div class="d-flex justify-content-between align-items-end">
 
+                    <div>
+                        <div>
+                            <i class="bi bi-shop"></i>
+                            ${artisan.specialite.nom}
+                        </div>
+
+                        <div>
+                        <i class="bi bi-geo-alt"></i>
+                        ${artisan.ville}
+                    </div>
+                </div>
+
+                <a class="btn btn-primary" href="/artisan-front/pages/artisan.html?id=${artisan.id}">
+                    Voir sa fiche
+                </a>
         </div>
     </div>
     `;
