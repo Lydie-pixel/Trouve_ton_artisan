@@ -1,0 +1,198 @@
+/* =====================
+   Rest CSS
+===================== */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =====================
+   Polices
+===================== */
+
+@font-face {
+  font-family: "Graphik";
+  src: url("/artisan-front/asset/police/Graphik-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("/artisan-front/asset/police/Graphik-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("/artisan-front/asset/police/Graphik-Bold-Trial.otf") format("opentype");
+  font-weight: 700;
+}
+
+
+/* =====================
+   FONT
+===================== */
+
+body {
+  font-family: "Graphik", sans-serif;
+  background-color: #f8f9fa;
+  color: #384050;
+  margin: 0;
+}
+
+.btn-primary {
+  background-color: #00497c;
+  border-color: #00497c;
+}
+
+.section-accent {
+  width: 60px;
+  height: 5px;
+  background-color: #cd2d2e;
+  margin: 10px auto 30px auto;
+}
+
+.section-accent-green {
+    width: 60px;
+    height: 5px;
+    background-color: #82b864;
+    margin: 10px auto 30px auto;
+}
+
+/* =====================
+   HEADER
+===================== */
+
+header {
+  padding: 10px 20px;
+}
+
+.navbar-brand img {
+  height: 80px;
+}
+
+/* =====================
+   HERO
+===================== */
+
+.hero {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   CARTES ARTISANS
+===================== */
+
+.row {
+  gap: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.badge {
+  font-size: 0.8rem;
+}
+
+/* =====================
+   FORMULAIRE
+===================== */
+
+form {
+  margin-top: 30px;
+  background-color: #f1f8fc;
+}
+
+form button {
+  margin-top: 15px;
+}
+
+
+/* =====================
+   Fonctionnement
+===================== */
+
+.fonctionnement {
+background-color: #f1f8fc;
+}
+
+.circle-fill {
+    color: #0074c7;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+  margin-top: 50px;
+  padding: 30px 20px;
+  background-color: #0074c7;
+  color: white;
+  text-align: left;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* =====================
+   En construction
+===================== */
+
+.construction-page {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.construction-page i {
+  font-size: 120px;
+  color: #00497c;
+  margin-bottom: 20px;
+}
+
+/* =====================
+   TABLETTE
+===================== */
+
+@media (min-width: 768px) {
+
+  .hero {
+    padding: 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+}
+
+/* =====================
+   DESKTOP
+===================== */
+
+@media (min-width: 1200px) {
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+}
