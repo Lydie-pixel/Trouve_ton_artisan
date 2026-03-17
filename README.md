@@ -53,17 +53,18 @@ Importer les fichiers :
 ---
 
 ## Structure du projet
-/artisan-api
-/controllers
-/models
-/routes
 
-/artisan-front
-/assets
-/css
-/js
-/pages
-
+├── artisan-front/
+│ └── asset/
+│     ├──── css/
+│     ├──── img/
+│     └──── js/
+│ └── componement/
+│ └── pages/
+│
+├── controllers/
+├── models/
+└── routes/
 
 ---
 
