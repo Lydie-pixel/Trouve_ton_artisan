@@ -13,6 +13,10 @@ const sequelize = new Sequelize(
         require: true,
         rejectUnauthorized: false
       }
+    },
+      pool: {
+      acquire: 30000,
+      idle: 10000
     }
   }
 );
