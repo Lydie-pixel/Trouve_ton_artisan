@@ -169,6 +169,17 @@ footer a {
   margin-bottom: 20px;
 }
 
+.fail-page{
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.fail-page i {
+  font-size: 150px;
+  color: #00497c;
+  margin-bottom: 20px;
+}
+
 /* =====================
    TABLETTE
 ===================== */
