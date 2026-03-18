@@ -32,7 +32,7 @@ INSERT INTO specialite (nom, categorie_id) VALUES
 
 -- Les artisants
 
-INSERT INTO Artisan 
+INSERT INTO artisan 
 (nom, note, ville, description, email, site_web, top, specialite_id)
 VALUES
 ('Boucherie Dumont', 4.5, 'Lyon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin. ', 'boucherie.dumond@gmail.com', NULL, 0, 1),
