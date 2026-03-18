@@ -17,14 +17,6 @@ sequelize.sync({ alter: true })
     console.error("Erreur connexion BDD :", error);
 });
 
-app.get("/", (req, res) => {
-  res.send("API Trouve ton artisan opérationnelle");
-});
-
-app.get("/artisans", (req, res) => {
-  res.send("Liste des artisans");
-});
-
 app.use((req, res) => {
   res.status(404).sendFile(__dirname + "/public/404.html");
 });
