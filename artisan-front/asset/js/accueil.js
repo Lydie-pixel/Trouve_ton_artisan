@@ -47,7 +47,7 @@ function createArtisanCard(artisan) {
     return card;
 }
 
-fetch("http://localhost:3000/api/artisans/top")
+fetch("/api/artisans/top")
 .then(res => res.json())
 .then(data => {
 
