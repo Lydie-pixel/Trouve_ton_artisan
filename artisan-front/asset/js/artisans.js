@@ -4,14 +4,14 @@ const categorieId = params.get("categorie");
 const ville = params.get("ville");
 const nom = params.get("nom");
 
-let url = "http://localhost:3000/api/artisans";
+let url = "/api/artisans";
 
 if (categorieId) {
-  url = `http://localhost:3000/api/artisans/categorie/${categorieId}`;
+  url = "/api/artisans/categorie/${categorieId}";
 }
 
 if (ville || nom) {
-  url = `http://localhost:3000/api/artisans/search?ville=${ville || ""}&nom=${nom || ""}`;
+  url = `/api/artisans/categorie/${categorieId}`;
 }
 
 //Crée une cartes pour chaques artisans
@@ -90,7 +90,7 @@ if (input) {
     const ville = input.value;
 
     const response = await fetch(
-      `http://localhost:3000/api/artisans/search?ville=${ville}`
+      "/api/artisans/search?ville=${ville}"
     );
 
     const artisans = await response.json();

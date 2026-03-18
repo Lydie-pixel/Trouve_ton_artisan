@@ -1,5 +1,5 @@
 // Affiche le header
-fetch("/artisan-front/components/Header.html")
+fetch("/components/Header.html")
 .then(res => res.text())
 .then(data => {
     const header = document.getElementById("header");
@@ -7,7 +7,7 @@ fetch("/artisan-front/components/Header.html")
 });
 
 // Affiche le hero
-fetch("/artisan-front/components/Hero.html")
+fetch("/components/Hero.html")
 .then(res => res.text())
 .then(data => {
     const hero = document.getElementById("hero");
@@ -15,7 +15,7 @@ fetch("/artisan-front/components/Hero.html")
 });
 
 // Affiche le footer
-fetch("/artisan-front/components/Footer.html")
+fetch("/components/Footer.html")
 .then(res => res.text())
 .then(data => {
     const footer = document.getElementById("footer");
@@ -23,7 +23,7 @@ fetch("/artisan-front/components/Footer.html")
 });
 
 // Transmet les données de l'API au front pour la recherche des artisans via la catégorie pour la navbar
-fetch("http://localhost:3000/api/categories")
+fetch("/api/categories")
 .then(res => res.json())
 .then(categories => {
 
@@ -35,7 +35,7 @@ fetch("http://localhost:3000/api/categories")
         li.classList.add("nav-item");
 
         li.innerHTML = `
-        <a class="nav-link" href="/artisan-front/pages/artisans.html?categorie=${categorie.id}">
+        <a class="nav-link" href="/pages/artisans.html?categorie=${categorie.id}">
             ${categorie.nom}
         </a>
         `;

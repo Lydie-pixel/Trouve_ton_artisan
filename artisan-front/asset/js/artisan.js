@@ -3,7 +3,7 @@ const artisanId = params.get("id");
 
 
 //informations de l'artisan via son ID
-fetch(`http://localhost:3000/api/artisans/${artisanId}`)
+fetch("/api/artisans/${artisanId}")
 .then(res => res.json())
 .then(artisan => {
 
@@ -56,7 +56,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
 
-    const response = await fetch("http://localhost:3000/api/messages", {
+    const response = await fetch("/api/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

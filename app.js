@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
 
 const artisanRoutes = require("./routes/artisanRoutes");
 const categorieRoutes = require("./routes/categorieRoutes");
@@ -7,8 +8,9 @@ const specialiteRoutes = require("./routes/specialiteRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
 
-const helmet = require("helmet");
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false
+}));
 
 app.use(express.static("artisan-front"));
 app.use(cors());
