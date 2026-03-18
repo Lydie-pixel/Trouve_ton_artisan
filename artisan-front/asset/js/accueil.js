@@ -1,3 +1,4 @@
+console.log("JS chargé !");
 //Crée une cartes pour chaques artisans
 function createArtisanCard(artisan) {
 

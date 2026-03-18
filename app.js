@@ -9,7 +9,14 @@ const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
 
 app.use(helmet({
-  contentSecurityPolicy: false
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'", "https:"],
+      scriptSrc: ["'self'", "https:", "'unsafe-inline'"],
+      styleSrc: ["'self'", "https:", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+    }
+  }
 }));
 
 app.use(express.static("artisan-front"));
