@@ -38,7 +38,7 @@ function createArtisanCard(artisan) {
                     </div>
                 </div>
 
-                <a class="btn btn-primary" href="/artisan-front/pages/artisan.html?id=${artisan.id}">
+                <a class="btn btn-primary" href="/pages/artisan.html?id=${artisan.id}">
                     Voir sa fiche
                 </a>
         </div>
