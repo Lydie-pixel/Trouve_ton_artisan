@@ -55,6 +55,6 @@ searchForm.addEventListener("submit", (e) => {
 
   const search = document.getElementById("searchInput").value;
 
-  window.location.href = `/artisan-front/pages/artisan.html?ville=${search}`;
+  window.location.href = `/pages/artisan.html?ville=${search}`;
 
 });
