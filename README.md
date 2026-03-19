@@ -4,30 +4,51 @@ Plateforme permettant aux particuliers de trouver facilement un artisan en Auver
 
 ---
 
+## Démo en ligne
+
+https://trouve-ton-artisan-wcd3.onrender.com
+
+---
+
+## Contexte du projet
+
+Ce projet a été réalisé dans le cadre d'une formation en développement web.
+
+Objectif :
+- Concevoir une application complète (frontend + backend)
+- Manipuler une base de données relationnelle
+- Développer une API REST sécurisée
+- Déployer une application en ligne
+
+---
+
 ## Technologies utilisées
 
-Frontend
+### Frontend
 - HTML
 - CSS
 - Bootstrap
 - JavaScript
 
-Backend
+### Backend
 - Node.js
 - Express
 - Sequelize
 
-Base de données
-- MySQL
+### Base de données
+- MySQL (hébergée sur Railway)
+
+### Déploiement
+- Render
 
 ---
 
-### Gestion des emails (amélioration possible)
+#### Gestion des emails (amélioration possible)
 
 L’envoi d’emails n’est pas implémenté dans cette version.
-Pour une version production il serait recommandé d’utiliser Nodemailer afin d’envoyer les messages directement à l’artisan après soumission du formulaire.
+Pour une version production il serait recommandé d’utiliser **Nodemailer** afin d’envoyer les messages directement à l’artisan après soumission du formulaire.
 
-#### Exemple d’intégration
+##### Exemple d’intégration
 
     const nodemailer = require("nodemailer");
 
@@ -57,12 +78,21 @@ Ils peuvent être consultés via l’endpoint :
 
 ## Fonctionnalités
 
-- Liste des artisans par catégorie
-- Recherche d’artisans par ville
-- Fiche détaillée d’un artisan
+
+- Recherche d’artisans (ville / nom / catégorie)
+- Filtrage par catégorie
+- Mise en avant des artisans "Top"
+- Fiche détaillée artisan
 - Formulaire de contact
-- API REST sécurisée
-- Responsive design (mobile first)
+- Responsive design (mobile-first)
+
+---
+## Sécurité mise en place
+
+- Validation des données côté serveur
+- Protection contre les injections SQL via Sequelize
+- Utilisation de Helmet pour sécuriser les headers HTTP
+- Architecture MVC pour une meilleure organisation du code
 
 ---
 
@@ -75,11 +105,11 @@ Ils peuvent être consultés via l’endpoint :
 
 3. Configurer les variables d’environnement (.env)
 
-    DB_HOST=...
-    DB_USER=...
-    DB_PASSWORD=...
-    DB_NAME=...
-    DB_PORT=...
+    - DB_HOST=...
+    - DB_USER=...
+    - DB_PASSWORD=...
+    - DB_NAME=...
+    - DB_PORT=...
 
 4. Importer la base de données
 
@@ -110,21 +140,13 @@ artisan-front/
 
 ---
 
-## Sécurité mise en place
 
-- Validation des données côté serveur
-- Protection contre les injections SQL via Sequelize
-- Utilisation de Helmet pour sécuriser les headers HTTP
-- Architecture MVC pour une meilleure organisation du code
-
----
-
-## Démo
-
-https://trouve-ton-artisan-wcd3.onrender.com
-
----
 
 ## Auteur
 
+**Lydie Meunier** 
 Projet réalisé dans le cadre d'une formation développement web.
+
+---
+
+N’hésite pas à me contacter pour toute question ou opportunité.
