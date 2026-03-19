@@ -1,5 +1,5 @@
 // Affiche le header
-fetch("/components/Header.html")
+fetch("/artisan-front/components/Header.html")
 .then(res => res.text())
 .then(data => {
     const header = document.getElementById("header");
@@ -7,7 +7,7 @@ fetch("/components/Header.html")
 });
 
 // Affiche le hero
-fetch("/components/Hero.html")
+fetch("/artisan-front/components/Hero.html")
 .then(res => res.text())
 .then(data => {
     const hero = document.getElementById("hero");
@@ -15,7 +15,7 @@ fetch("/components/Hero.html")
 });
 
 // Affiche le footer
-fetch("/components/Footer.html")
+fetch("/artisan-front/components/Footer.html")
 .then(res => res.text())
 .then(data => {
     const footer = document.getElementById("footer");
@@ -34,10 +34,11 @@ fetch("/api/categories")
         const li = document.createElement("li");
         li.classList.add("nav-item");
 
-        li.innerHTML = `
+       li.innerHTML = `
         <a class="nav-link" href="/artisan-front/pages/artisans.html?categorie=${categorie.id}">
+        ${categorie.nom}
         </a>
-        `;
+    `;
 
         menu.appendChild(li);
 
