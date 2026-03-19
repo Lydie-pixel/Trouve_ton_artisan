@@ -45,3 +45,4 @@ fetch("/api/categories")
     });
 
 });
+
