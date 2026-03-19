@@ -20,7 +20,7 @@ else if (ville || nom) {
 function createArtisanCard(artisan) {
 
     const card = document.createElement("div");
-    card.classList.add("col-md-4");
+    card.classList.add("col-12", "col-md-6", "col-lg-4");
 
     card.innerHTML = `
 <div class="card h-100 shadow p-3">
