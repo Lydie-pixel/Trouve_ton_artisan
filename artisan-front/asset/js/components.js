@@ -45,16 +45,3 @@ fetch("/api/categories")
     });
 
 });
-
-// Recherche des artisans 
-const searchForm = document.querySelector("form");
-
-searchForm.addEventListener("submit", (e) => {
-
-  e.preventDefault();
-
-  const search = document.getElementById("searchInput").value;
-
-  window.location.href = `/pages/artisan.html?ville=${search}`;
-
-});

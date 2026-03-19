@@ -46,6 +46,13 @@ Pour une version production il serait recommandé d’utiliser Nodemailer afin d
     text: data.message
     });
 
+### Vérification des messages
+
+Les messages envoyés via le formulaire sont stockés en base de données.
+
+Ils peuvent être consultés via l’endpoint :
+/api/messages
+
 ---
 
 ## Fonctionnalités
