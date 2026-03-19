@@ -35,8 +35,7 @@ fetch("/api/categories")
         li.classList.add("nav-item");
 
         li.innerHTML = `
-        <a class="nav-link" href="/pages/artisans.html?categorie=${categorie.id}">
-            ${categorie.nom}
+        <a class="nav-link" href="/artisan-front/pages/artisans.html?categorie=${categorie.id}">
         </a>
         `;
 
@@ -55,7 +54,6 @@ searchForm.addEventListener("submit", (e) => {
 
   const search = document.getElementById("searchInput").value;
 
-  window.location.href =
-  `artisan.html?ville=${search}`;
+  window.location.href = `/artisan-front/pages/artisan.html?ville=${search}`;
 
 });
