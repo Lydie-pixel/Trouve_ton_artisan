@@ -7,7 +7,7 @@ const nom = params.get("nom");
 let url = "/api/artisans";
 
 if (categorieId) {
-  url = "/api/artisans/categorie/${categorieId}";
+  url = `/api/artisans/categorie/${categorieId}`;
 }
 
 if (ville || nom) {
@@ -90,7 +90,7 @@ if (input) {
     const ville = input.value;
 
     const response = await fetch(
-      "/api/artisans/search?ville=${ville}"
+      `/api/artisans/search?ville=${ville}`
     );
 
     const artisans = await response.json();

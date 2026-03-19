@@ -3,7 +3,7 @@ const artisanId = params.get("id");
 
 
 //informations de l'artisan via son ID
-fetch("/api/artisans/${artisanId}")
+fetch(`/api/artisans/${artisanId}`)
 .then(res => res.json())
 .then(artisan => {
 
