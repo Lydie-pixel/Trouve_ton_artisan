@@ -1,5 +1,5 @@
 // Affiche le header
-fetch("/artisan-front/components/Header.html")
+fetch("/components/Header.html")
 .then(res => res.text())
 .then(data => {
     const header = document.getElementById("header");
@@ -7,7 +7,7 @@ fetch("/artisan-front/components/Header.html")
 });
 
 // Affiche le hero
-fetch("/artisan-front/components/Hero.html")
+fetch("/components/Hero.html")
 .then(res => res.text())
 .then(data => {
     const hero = document.getElementById("hero");
@@ -15,7 +15,7 @@ fetch("/artisan-front/components/Hero.html")
 });
 
 // Affiche le footer
-fetch("/artisan-front/components/Footer.html")
+fetch("/components/Footer.html")
 .then(res => res.text())
 .then(data => {
     const footer = document.getElementById("footer");
