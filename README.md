@@ -22,6 +22,32 @@ Base de données
 
 ---
 
+### Gestion des emails (amélioration possible)
+
+L’envoi d’emails n’est pas implémenté dans cette version.
+Pour une version production il serait recommandé d’utiliser Nodemailer afin d’envoyer les messages directement à l’artisan après soumission du formulaire.
+
+#### Exemple d’intégration
+
+    const nodemailer = require("nodemailer");
+
+    const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "tonemail@gmail.com",
+        pass: "motdepasse"
+    }
+    });
+
+    await transporter.sendMail({
+    from: data.email,
+    to: artisan.email,
+    subject: data.objet,
+    text: data.message
+    });
+
+---
+
 ## Fonctionnalités
 
 - Liste des artisans par catégorie
@@ -40,8 +66,15 @@ Base de données
 
     npm install
 
-3. Configurer la base de données
-Importer les fichiers :
+3. Configurer les variables d’environnement (.env)
+
+    DB_HOST=...
+    DB_USER=...
+    DB_PASSWORD=...
+    DB_NAME=...
+    DB_PORT=...
+
+4. Importer la base de données
 
 - schema.sql
 - data.sql
@@ -54,26 +87,34 @@ Importer les fichiers :
 
 ## Structure du projet
 
-├── artisan-front/
-│ └── asset/
-│     ├──── css/
-│     ├──── img/
-│     └──── js/
-│ └── componement/
-│ └── pages/
-│
+artisan-api/
 ├── controllers/
 ├── models/
-└── routes/
+├── routes/
+
+artisan-front/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── img/
+│   ├── police/
+├── pages/
+├── componenets/
 
 ---
 
 ## Sécurité mise en place
 
-- Validation des données
-- Sequelize (protection SQL injection)
-- Helmet (headers de sécurité)
-- Structure MVC
+- Validation des données côté serveur
+- Protection contre les injections SQL via Sequelize
+- Utilisation de Helmet pour sécuriser les headers HTTP
+- Architecture MVC pour une meilleure organisation du code
+
+---
+
+## Démo
+
+https://trouve-ton-artisan-wcd3.onrender.com
 
 ---
 
