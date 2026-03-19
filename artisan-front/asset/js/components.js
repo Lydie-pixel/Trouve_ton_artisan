@@ -35,7 +35,7 @@ fetch("/api/categories")
         li.classList.add("nav-item");
 
        li.innerHTML = `
-        <a class="nav-link" href="/artisan-front/pages/artisans.html?categorie=${categorie.id}">
+        <a class="nav-link" href="/pages/artisans.html?categorie=${categorie.id}">
         ${categorie.nom}
         </a>
     `;
