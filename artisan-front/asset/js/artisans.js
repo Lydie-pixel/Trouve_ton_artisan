@@ -6,12 +6,14 @@ const nom = params.get("nom");
 
 let url = "/api/artisans";
 
+  // priorité 1 : catégorie
 if (categorieId) {
   url = `/api/artisans/categorie/${categorieId}`;
 }
 
-if (ville || nom) {
-  url = `/api/artisans/categorie/${categorieId}`;
+  // priorité 2 : recherche (ville / nom)
+else if (ville || nom) {
+  url = `/api/artisans/search?ville=${ville || ""}&nom=${nom || ""}`;
 }
 
 //Crée une cartes pour chaques artisans
