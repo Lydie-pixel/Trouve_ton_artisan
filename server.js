@@ -20,8 +20,12 @@ sequelize.sync({ alter: true })
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/artisan-front/index.html");
 });
+
+const path = require("path");
+
 app.get("/pages/:page", (req, res) => {
-  res.sendFile(__dirname + "/artisan-front/pages/" + req.params.page);
+  console.log("PAGE DEMANDÉE :", req.params.page);
+  res.sendFile(path.join(__dirname, "artisan-front", "pages", req.params.page));
 });
 
 app.use((req, res) => {

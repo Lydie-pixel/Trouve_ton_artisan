@@ -1,5 +1,5 @@
 // Affiche le header
-fetch("components/Header.html")
+fetch("/components/Header.html")
 .then(res => res.text())
 .then(data => {
     const header = document.getElementById("header");
