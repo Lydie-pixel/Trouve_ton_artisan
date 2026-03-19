@@ -91,10 +91,6 @@ header {
    CARTES ARTISANS
 ===================== */
 
-.row {
-  gap: 10px;
-}
-
 .card {
   border: none;
   border-radius: 12px;
