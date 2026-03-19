@@ -120,9 +120,4 @@ https://trouve-ton-artisan-wcd3.onrender.com
 
 ## Auteur
 
-**Lydie Meunier** 
 Projet réalisé dans le cadre d'une formation développement web.
-
----
-
-N’hésite pas à me contacter pour toute question ou opportunité.
